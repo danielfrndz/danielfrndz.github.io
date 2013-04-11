@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>   
     <title>Daniel Fernandez</title>
-    <atom:link href="http://danielf.com.ar/feed.xml" rel="self" type="application/rss+xml"></atom:link>
-    <link>http://danielf.com.ar</link>
+    <atom:link href="http://danielmfernandez.com.ar/feed.xml" rel="self" type="application/rss+xml"></atom:link>
+    <link>http://danielmfernandez.com.ar</link>
     <description>My personal blog</description>
     <pubDate>Wed, 10 Apr 2013 15:00:00 -0300</pubDate>
     <generator>The mighty Wintersmith</generator>
     <language>en</language>
     <item>
       <title>2013 goals</title>
-      <link>http://danielf.com.ar/articles/2%20-%20goals/</link>
+      <link>http://danielmfernandez.com.ar/articles/2%20-%20goals/</link>
       <pubDate>Wed, 10 Apr 2013 15:00:00 -0300</pubDate>
-      <guid isPermaLink="true">http://danielf.com.ar/articles/2%20-%20goals/</guid>
+      <guid isPermaLink="true">http://danielmfernandez.com.ar/articles/2%20-%20goals/</guid>
       <author></author>
       <description>&lt;p&gt;At the beggining of the year, I set some goals that I want to share with you as a way to formalize them:
 
@@ -36,9 +36,9 @@
     </item>
     <item>
       <title>Welcome</title>
-      <link>http://danielf.com.ar/articles/1-%20welcome/</link>
+      <link>http://danielmfernandez.com.ar/articles/1-%20welcome/</link>
       <pubDate>Tue, 09 Apr 2013 15:00:00 -0300</pubDate>
-      <guid isPermaLink="true">http://danielf.com.ar/articles/1-%20welcome/</guid>
+      <guid isPermaLink="true">http://danielmfernandez.com.ar/articles/1-%20welcome/</guid>
       <author></author>
       <description>&lt;p&gt;I once started a blog and, like many others bloggers, ended up abandoning it. Why is this time going to be any different? Because reasons are different. Now I do it for pleasure. I received so much from the IT community during the last years that I want to start sharing things back. Maybe I can help someone around the world.
 
@@ -46,7 +46,7 @@
 &lt;p&gt;Something that I find interesting is that I have more things to share from my last 2 years as a freelancer than from my 10 years of working as a full time Software Engineer in local companies. I will share my experience in future posts for those who are interested in becoming a freelancer, but feel free to contact me if you cannot wait!
 
 &lt;/p&gt;
-&lt;p&gt;Code and enjoy life!&lt;/p&gt;
+&lt;p&gt;Build stuff and enjoy life!&lt;/p&gt;
 </description>
     </item>
   </channel>
