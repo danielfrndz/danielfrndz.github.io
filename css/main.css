@@ -5,8 +5,8 @@ h1, h2, h3, h4, h5, h6, p, blockquote, body {
 }
 
 body {
-  font: 16px/28px "Merriweather",Georgia,serif;
-  color: #252824;
+  font: 16px/28px "Helvetica Neue",Helvetica,sans-serif;
+  color: #555;
   line-height: 28px;
 }
 
@@ -60,7 +60,7 @@ a#archive {
 }
 
 p {
-  margin-bottom: 9px;
+  margin-bottom: 27px;
 }
 
 
@@ -139,18 +139,25 @@ article.post .content img {
 }
 
 article.post header {
-  margin-bottom: 22px;
-  border-bottom: 1px solid #dfdfdf;
+  margin-bottom: 36px;
 }
 
 article.post header a {
-  color: #252824;
-  text-decoration: none;
+  font-size: 36px;
+  color:#555;
+  -webkit-transition:0.07000000000000001s ease-in;
+  -moz-transition:0.07000000000000001s ease-in;
+  -o-transition:0.07000000000000001s ease-in;
+  transition:0.07000000000000001s ease-in
 }
 
 article.post header a:hover {
-  text-shadow: none;
-  text-decoration: underline;
+  text-decoration: none;
+  color:#777;
+  -webkit-transition:0.07000000000000001s ease-in;
+  -moz-transition:0.07000000000000001s ease-in;
+  -o-transition:0.07000000000000001s ease-in;
+  transition:0.07000000000000001s ease-in
 }
 
 hr {
@@ -233,9 +240,6 @@ pre code {
   }
   body > header .inner {
     margin: 30px auto;
-  }
-  body > header {
-    padding-top: 30px;
   }
   body > header h1 {
     font-size: 58px;

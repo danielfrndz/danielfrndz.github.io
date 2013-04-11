@@ -5,37 +5,48 @@
     <atom:link href="http://danielf.com.ar/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://danielf.com.ar</link>
     <description>My personal blog</description>
-    <pubDate>Tue, 09 Apr 2013 15:00:00 -0300</pubDate>
+    <pubDate>Wed, 10 Apr 2013 15:00:00 -0300</pubDate>
     <generator>The mighty Wintersmith</generator>
     <language>en</language>
     <item>
-      <title>Welcome</title>
-      <link>http://danielf.com.ar/articles/welcome/</link>
-      <pubDate>Tue, 09 Apr 2013 15:00:00 -0300</pubDate>
-      <guid isPermaLink="true">http://danielf.com.ar/articles/welcome/</guid>
+      <title>2013 goals</title>
+      <link>http://danielf.com.ar/articles/2%20-%20goals/</link>
+      <pubDate>Wed, 10 Apr 2013 15:00:00 -0300</pubDate>
+      <guid isPermaLink="true">http://danielf.com.ar/articles/2%20-%20goals/</guid>
       <author></author>
-      <description>&lt;p&gt;I once started a blog and, like many others bloggers, ended up abandoning it. Why is this time going to be any different? Because reasons are different. I do not want to use it to promote myself and find a good job, but because I received so much from the IT community during the last years that I want to start sharing things back. Maybe I can help someone around the world. As a personal plus, I will improve my post writting skills. Circumstantially, I also feel that I have more things to share now than back then when I was already graduated as a Software Engineer and had over 10 years of experience in developing. I will write a post on this, explaining why I feel that I learned more over my freelancer years when I choosed what to read, than when I was studying Software engenieering in college and working for argentinian sotware companies.
-
-&lt;/p&gt;
-&lt;p&gt;So, I will end up this first introductory post by sharing my goals for 2013. Writing them here is a way to formalize them. 
-
-&lt;/p&gt;
-&lt;p&gt;Here they are:
+      <description>&lt;p&gt;At the beggining of the year, I set some goals that I want to share with you as a way to formalize them:
 
 &lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Improve my skills with Sublime Text 2 to develop&lt;/li&gt;
-&lt;li&gt;Correct the position of some typing fingers and reach 50 WPM&lt;/li&gt;
-&lt;li&gt;Reach a week excersice routine and lose 6 kilograms&lt;/li&gt;
-&lt;li&gt;Launch Tagnfile.it and reach the first 500 users&lt;/li&gt;
-&lt;li&gt;Fully migrate to Ubuntu (I still use some windows programs)&lt;/li&gt;
-&lt;li&gt;Learn at least one unrelated activity like salsa or sailing&lt;/li&gt;
-&lt;li&gt;Launch danielf.com.ar blog and write at least 30 posts&lt;/li&gt;
-&lt;li&gt;Create at least 3 opensources proyects to share in Github&lt;/li&gt;
-&lt;li&gt;Read at leasst 4 books&lt;/li&gt;
+&lt;li&gt;Improve my skills with Sublime Text 2&lt;/li&gt;
+&lt;li&gt;Correct the position of my fingers when typing and reach 50 WPM&lt;/li&gt;
+&lt;li&gt;Have weekly excersice routine and lose 6 kilograms&lt;/li&gt;
+&lt;li&gt;Launch &lt;a href=&quot;http://tagnfile.it&quot;&gt;Tagnfile.it&lt;/a&gt; and reach the first 500 users&lt;/li&gt;
+&lt;li&gt;Learn at least one unrelated activity like salsa dance or sailing&lt;/li&gt;
+&lt;li&gt;Launch new personal blog and write at least 30 posts&lt;/li&gt;
+&lt;li&gt;Create/Colaborate in 3 or more opensources proyects&lt;/li&gt;
+&lt;li&gt;Read at least 4 books&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;As you can see, my goals are not that hard to accomplish (except for the 500 users one), but that is ok. It is the first time I do this and I want to enjoy the path and check results by 2014. What is interesting is that some goals are measurable: 50 WPm, 6 kilograms, 500 users, 30 posts, 3 opensource proyects, 4 books. I did this on purpose to have some values to compare at the end of the year. I suggest you do the same and write the goals you want to achieve this year. Do not push your limits, just do it for fun.
+&lt;p&gt;As you can see, my goals are not that hard to accomplish (well, maybe the 500 users one). The important detail about most of them is that they are measurable: 50 WPm, 6 kilograms, 500 users, 1 activity, 30 posts, 3 opensource proyects, 4 books. I did this on purpose to have some values to compare at the end of the year and then laugh at myself thinking &quot;What in the hell was I thinking?&quot;. 
+
 &lt;/p&gt;
+&lt;p&gt;Seriously, I suggest you do the same and write the goals you want to achieve this year. Do not push your limits, just do it for fun.
+&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Welcome</title>
+      <link>http://danielf.com.ar/articles/1-%20welcome/</link>
+      <pubDate>Tue, 09 Apr 2013 15:00:00 -0300</pubDate>
+      <guid isPermaLink="true">http://danielf.com.ar/articles/1-%20welcome/</guid>
+      <author></author>
+      <description>&lt;p&gt;I once started a blog and, like many others bloggers, ended up abandoning it. Why is this time going to be any different? Because reasons are different. Now I do it for pleasure. I received so much from the IT community during the last years that I want to start sharing things back. Maybe I can help someone around the world.
+
+&lt;/p&gt;
+&lt;p&gt;Something that I find interesting is that I have more things to share from my last 2 years as a freelancer than from my 10 years of working as a full time Software Engineer in local companies. I will share my experience in future posts for those who are interested in becoming a freelancer, but feel free to contact me if you cannot wait!
+
+&lt;/p&gt;
+&lt;p&gt;Code and enjoy life!&lt;/p&gt;
 </description>
     </item>
   </channel>
