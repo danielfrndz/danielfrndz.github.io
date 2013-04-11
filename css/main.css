@@ -141,10 +141,11 @@ body > header .icons {
 }
 
 body > header .icons img {
+  opacity: .9;
 }
 
 body > header .icons img:hover {
-  opacity: .8; 
+  opacity: 1.0; 
 }
 
 body > header h1 a:hover {
