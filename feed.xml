@@ -5,9 +5,45 @@
     <atom:link href="http://dfernandez.me/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://dfernandez.me</link>
     <description>My personal blog</description>
-    <pubDate>Wed, 10 Apr 2013 15:00:00 -0300</pubDate>
+    <pubDate>Mon, 15 Apr 2013 15:00:00 -0300</pubDate>
     <generator>The mighty Wintersmith</generator>
     <language>en</language>
+    <item>
+      <title>Turn your browser into a drawpad</title>
+      <link>http://dfernandez.me/articles/3%20-%20drawing%20bookmarklet/</link>
+      <pubDate>Mon, 15 Apr 2013 15:00:00 -0300</pubDate>
+      <guid isPermaLink="true">http://dfernandez.me/articles/3%20-%20drawing%20bookmarklet/</guid>
+      <author></author>
+      <description>&lt;p&gt;Not to long ago I came across with an &lt;a href=&quot;https://news.ycombinator.com/item?id=5135194&quot;&gt;interesting post&lt;/a&gt; on Hacker News that proposed to turn your browser into a notepad. The idea was simple; it used the data URI format to include inline HTML and JS. Since that day, I never stop using it. 
+
+&lt;/p&gt;
+&lt;p&gt;I actually picked up an &lt;a href=&quot;https://gist.github.com/danielfrndz/5383435&quot;&gt;improved version&lt;/a&gt; where, when you press CTRL + S keys, it adds the written data to the URL saving it in the browser history for later access. If you checkout it out, just paste &lt;a href=&quot;https://gist.github.com/danielfrndz/5383527&quot;&gt;this code&lt;/a&gt; to your URL tab.
+
+&lt;/p&gt;
+&lt;p&gt;Before I realized, each of my opened browser windows had a first tab that was using it either for temporal bookmarks or notes. 
+
+&lt;/p&gt;
+&lt;p&gt;I just love it.
+
+&lt;/p&gt;
+&lt;p&gt;One day, I was trying to quickly draw something and I asked myself if I could use a similar approach. It turned out that it was possible. You can even save the drawing to the browser history with CTRL + S. Go ahead and try it out by pasting this code to your URL tab:
+
+&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/danielfrndz/5383566.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;For those who want to check or improve the code, here it is nicely indented:
+
+&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/danielfrndz/be5f4d048c24b08ec1dc.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Although I do not use it as much as the notes, some days I find it very handy.
+
+&lt;/p&gt;
+&lt;p&gt;I hope you too!
+
+&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>2013 goals</title>
       <link>http://dfernandez.me/articles/2%20-%20goals/</link>
