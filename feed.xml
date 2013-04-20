@@ -14,10 +14,14 @@
       <pubDate>Mon, 15 Apr 2013 15:00:00 -0300</pubDate>
       <guid isPermaLink="true">http://dfernandez.me/articles/3%20-%20drawing%20bookmarklet/</guid>
       <author></author>
-      <description>&lt;p&gt;Not to long ago I came across with an &lt;a href=&quot;https://news.ycombinator.com/item?id=5135194&quot;&gt;interesting post&lt;/a&gt; on Hacker News that proposed to turn your browser into a notepad. The idea was simple; it used the data URI format to include inline HTML and JS. Since that day, I never stop using it. 
+      <description>&lt;p&gt;Not to long ago I came across with an &lt;a target=&quot;_blank&quot; href=&quot;https://news.ycombinator.com/item?id=5135194&quot;&gt;interesting post&lt;/a&gt; on Hacker News that proposed to turn your browser into a notepad. The idea was simple; it used the data URI format to include inline HTML and JS. Since that day, I never stop using it. 
 
 &lt;/p&gt;
-&lt;p&gt;I actually picked up an &lt;a href=&quot;https://gist.github.com/danielfrndz/5383435&quot;&gt;improved version&lt;/a&gt; where, when you press CTRL + S keys, it adds the written data to the URL saving it in the browser history for later access. If you checkout it out, just paste &lt;a href=&quot;https://gist.github.com/danielfrndz/5383527&quot;&gt;this code&lt;/a&gt; to your URL tab.
+&lt;p&gt;I actually picked up an &lt;a target=&quot;_blank&quot; href=&quot;https://gist.github.com/danielfrndz/5383435&quot;&gt;improved version&lt;/a&gt; where, when you press CTRL + S keys, it adds the written data to the URL saving it in the browser history for later access.
+
+&lt;/p&gt;
+&lt;p&gt;&lt;a class=&quot;button_red&quot; target=&quot;_blank&quot; href='data:text/html,&lt;html&gt;&lt;script&gt;window.onload=function(){var a=document.body;a.addEventListener(&quot;keydown&quot;,    function(b){if(b.ctrlKey&amp;&amp;83===b.which){document.location = &quot;data:text/html,&quot; + document.childNodes[0].outerHTML;b.preventDefault();}},!1);document.title= document.body.innerText.replace(/\n[\s\S]+$/,&quot; - &quot;)+new Date().toString();};&lt;/script&gt;&lt;body contenteditable&gt;&lt;/body&gt;&lt;/html&gt;
+'&gt;Click here to test notepad&lt;/a&gt;
 
 &lt;/p&gt;
 &lt;p&gt;Before I realized, each of my opened browser windows had a first tab that was using it either for temporal bookmarks or notes. 
@@ -26,11 +30,12 @@
 &lt;p&gt;I just love it.
 
 &lt;/p&gt;
-&lt;p&gt;One day, I was trying to quickly draw something and I asked myself if I could use a similar approach. It turned out that it was possible. You can even save the drawing to the browser history with CTRL + S. Go ahead and try it out by pasting this code to your URL tab:
+&lt;p&gt;One day, I was trying to quickly draw something and I asked myself if I could use a similar approach. It turned out that it was possible. You can even save the drawing to the browser history with CTRL + S.
 
 &lt;/p&gt;
-&lt;script src=&quot;https://gist.github.com/danielfrndz/5383566.js&quot;&gt;&lt;/script&gt;
+&lt;p&gt;&lt;a class=&quot;button_red&quot; target=&quot;_blank&quot; href='data:text/html,&lt;html&gt;&lt;style&gt;* { margin:0; padding:0; }html, body {cursor:pointer;width:100%; height:100%; }canvas { display:block; }&lt;/style&gt;&lt;script&gt;window.onload = function() {var myCanvas = document.getElementById(&quot;myCanvas&quot;);var data = document.getElementById(&quot;data&quot;);var curColor = &quot;#000&quot;;if(myCanvas){var isDown = false;var ctx = myCanvas.getContext(&quot;2d&quot;);var canvasX, canvasY;var img = new Image;img.onload = function(){ctx.drawImage(img,0,0);};img.src = data.value;myCanvas.addEventListener(&quot;mousedown&quot;, function(e){isDown = true;ctx.beginPath();canvasX = e.pageX - myCanvas.offsetLeft;canvasY = e.pageY - myCanvas.offsetTop;ctx.moveTo(canvasX, canvasY);}, false);myCanvas.addEventListener(&quot;mousemove&quot;, function(e){if(isDown != false) {canvasX = e.pageX - myCanvas.offsetLeft;canvasY = e.pageY - myCanvas.offsetTop;ctx.lineTo(canvasX, canvasY);ctx.strokeStyle = curColor;ctx.stroke();}}, false);myCanvas.addEventListener(&quot;mouseup&quot;, function(e){isDown = false;ctx.closePath();data.value = myCanvas.toDataURL();}, false);}window.addEventListener(&quot;resize&quot;, resizeCanvas, false);function resizeCanvas() {myCanvas.width = window.innerWidth;myCanvas.height = window.innerHeight;}resizeCanvas();var a=document.body;a.addEventListener(&quot;keydown&quot;, function(b){if(b.ctrlKey&amp;&amp;83===b.which){document.location = &quot;data:text/html,&quot; + document.childNodes[0].outerHTML;b.preventDefault();}}, false);document.title= document.body.innerText.replace(/\n[\s\S]+$/,&quot; - &quot;)+new Date().toString();};&lt;/script&gt;&lt;body&gt;&lt;input type=&quot;hidden&quot; id=&quot;data&quot;/&gt;&lt;canvas id=&quot;myCanvas&quot;&gt;Sorry, your browser does not support canvas technology.&lt;/canvas&gt;&lt;/body&gt;&lt;/html&gt;'&gt;Click here to test drawpad&lt;/a&gt;
 
+&lt;/p&gt;
 &lt;p&gt;For those who want to check or improve the code, here it is nicely indented:
 
 &lt;/p&gt;
@@ -57,7 +62,7 @@
 &lt;li&gt;Improve my skills with Sublime Text 2&lt;/li&gt;
 &lt;li&gt;Correct the position of my fingers when typing and reach 50 WPM&lt;/li&gt;
 &lt;li&gt;Have weekly excersice routine and lose 6 kilograms&lt;/li&gt;
-&lt;li&gt;Launch &lt;a href=&quot;http://tagnfile.it&quot;&gt;Tagnfile.it&lt;/a&gt; and reach the first 500 users&lt;/li&gt;
+&lt;li&gt;Launch &lt;a target=&quot;_blank&quot; href=&quot;http://tagnfile.it&quot;&gt;Tagnfile.it&lt;/a&gt; and reach the first 500 users&lt;/li&gt;
 &lt;li&gt;Learn at least one unrelated activity like salsa dance or sailing&lt;/li&gt;
 &lt;li&gt;Launch new personal blog and write at least 30 posts&lt;/li&gt;
 &lt;li&gt;Create/Colaborate in 3 or more opensources proyects&lt;/li&gt;

@@ -267,6 +267,17 @@ pre code {
   color: #CCC;
 }
 
+.button_red {
+  background-color: #BB333E;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;  
+}
+
+.button_red:hover {
+  text-decoration: none;
+}
+
 .archive ul {
   list-style: none;
   margin: 0;
