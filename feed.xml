@@ -5,9 +5,47 @@
     <atom:link href="http://dfernandez.me/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://dfernandez.me</link>
     <description>My personal blog</description>
-    <pubDate>Mon, 15 Apr 2013 15:00:00 -0300</pubDate>
+    <pubDate>Tue, 23 Apr 2013 15:00:00 -0300</pubDate>
     <generator>The mighty Wintersmith</generator>
     <language>en</language>
+    <item>
+      <title>Bitcoins in Argentina</title>
+      <link>http://dfernandez.me/articles/4_Bitcoins_in_Argentina/</link>
+      <pubDate>Tue, 23 Apr 2013 15:00:00 -0300</pubDate>
+      <guid isPermaLink="true">http://dfernandez.me/articles/4_Bitcoins_in_Argentina/</guid>
+      <author></author>
+      <description>&lt;div style=&quot;margin-bottom:20px;text-align:center&quot;&gt;&lt;img src=&quot;/images/articles/bitcoin_logo.png&quot; alt=&quot;Bitcoin logo&quot;/&gt;&lt;/div&gt;
+
+&lt;p&gt;I read about Bitcoin back in 2011, but it was not until this year that I got really involved with it. For those who never heard about Bitcoin, it is just a new currency, like dollars or euros. Some people describe it as a &apos;digital currency&apos; or &apos;crypto-currency&apos;, but I prefer to use only the term &apos;currency&apos; to ease its adoption as suggested in this excellent &lt;a target=&quot;_blank&quot; href=&quot;http://thegenesisblock.com/five-easy-ways-you-can-make-bitcoin-a-mainstream-currency/&quot;&gt;article&lt;/a&gt; by Jonathan Stacke. 
+
+&lt;/p&gt;
+&lt;p&gt;Without going into much details on how it works (I look forward to explain it in future posts), let just say that it operates thanks to the collective power of many connected computers. If you want more details right away, visit &lt;a target=&quot;_blank&quot; href=&quot;http://bitcoin.org/&quot;&gt;Bitcoin&apos;s official site&lt;/a&gt; or check this &lt;a target=&quot;_blank&quot; href=&quot;https://www.youtube.com/watch?v=Um63OQz3bjo&quot;&gt;video&lt;/a&gt;.
+
+&lt;/p&gt;
+&lt;p&gt;The great thing about Bitcoin is that it is not regulated by any central authority. You can transfer money directly to another person with your computer or mobile. Wow! A non-regulated currency! ... wait, won´t that scare people? No. At least not here in Argentina where we know about regulations. Our goverment regulates the amount of dollars you can buy (regulates, not prohibit), so Bitcoin raises as an insteresting alternative currency.
+
+&lt;/p&gt;
+&lt;p&gt;One week ago, &lt;a target=&quot;_blank&quot; href=&quot;http://bitcoinfilm.org/&quot;&gt;Bitcoinfilm.org&lt;/a&gt; created a documentary about Bitcoins in Argentina. 
+
+&lt;/p&gt;
+&lt;p&gt;Here it is:
+
+&lt;/p&gt;
+&lt;p&gt;&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;http://www.youtube.com/embed/e__m-w4N7NI&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;br/&gt;
+
+&lt;/p&gt;
+&lt;p&gt;This video made its way to a major &lt;a target=&quot;_blank&quot; href=&quot;http://www.lanacion.com.ar/1575169-bitcoin-como-una-alternativa-a-las-restricciones-cambiarias-en-la-argentina#v_video_&quot;&gt;Argentinian newspaper (spanish)&lt;/a&gt; and I noticed that many friends starting talking about it, asking questions mostly. They were certainly interested in Bitcoin. Besides that, around 100 people assist to last &lt;a href=&quot;http://www.meetup.com/Bitcoin-Buenos-Aires/events/110480272/&quot;&gt;Bitcoin MeetUp in Buenos Aires&lt;/a&gt; and it is not crazy to expect that more people will assist to future ones. 
+
+&lt;/p&gt;
+&lt;p&gt;Those are all positive signs. You can tell that Argentina is slowly adopting it. There is still a long path down the road for Bitcoins, but it worth following it.
+
+&lt;/p&gt;
+&lt;p&gt;Spread the word!
+
+
+&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>Turn your browser into a drawpad</title>
       <link>http://dfernandez.me/articles/3%20-%20drawing%20bookmarklet/</link>
