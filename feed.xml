@@ -5,9 +5,58 @@
     <atom:link href="http://dfernandez.me/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://dfernandez.me</link>
     <description>My personal blog</description>
-    <pubDate>Tue, 23 Apr 2013 15:00:00 -0300</pubDate>
+    <pubDate>Fri, 17 May 2013 09:00:00 -0300</pubDate>
     <generator>The mighty Wintersmith</generator>
     <language>en</language>
+    <item>
+      <title>Bookmarking is much more complex than you think</title>
+      <link>http://dfernandez.me/articles/5_Bookmarking_is_much_more_complex_than_you_think/</link>
+      <pubDate>Fri, 17 May 2013 09:00:00 -0300</pubDate>
+      <guid isPermaLink="true">http://dfernandez.me/articles/5_Bookmarking_is_much_more_complex_than_you_think/</guid>
+      <author></author>
+      <description>&lt;p&gt;Long time ago I decided to work on a bookmarking site as a side project. If you are thinking &quot;not another bookmarking site please&quot;, &lt;b&gt;that is good!&lt;/b&gt; It means that you know there are constant new attempts to save/organize/share bookmarks that keep failing. But you may also know that here is still an unsatisfied market. 
+
+&lt;/p&gt;
+&lt;p&gt;Let me explain why I picked this side project.
+
+&lt;/p&gt;
+&lt;p&gt;As many people out there, I constantly deal with the &lt;a target=&quot;_blank&quot; href=&quot;http://blog.williamting.com/posts/2012/10/30/why-we-bookmark/&quot;&gt;three categories of bookmarking&lt;/a&gt;: &lt;b&gt;Now, Later, and Future&lt;/b&gt;. For those who never heard about those categories, here is a quick summary: 
+
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;b&gt;&quot;Now&quot;&lt;/b&gt; is for URLs that you are using right &lt;b&gt;now&lt;/b&gt; such as research URLs on your current project, Gmail, etc. (Yes, all those tabs that you have now open!); &lt;/li&gt;
+&lt;li&gt;&lt;b&gt;&quot;Later&quot;&lt;/b&gt; category represents what you find interesting enough to take a deeper look &lt;b&gt;later&lt;/b&gt; when you have more time available.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;&quot;Future&quot;&lt;/b&gt; are the bookmarks you want to archive/organize to access someday in the long &lt;b&gt;future&lt;/b&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;My problem is that I have to use different apps for each category. That makes it really difficult to smoothly move a bookmark from one category to another. If I use Pinboard for later and future bookmarks, I still end up with many opened tabs for what I am working right now.
+
+&lt;/p&gt;
+&lt;p&gt;I have been long waiting for a solution that properly handles all three of them. But there is none so far (at least that I know). 
+
+&lt;/p&gt;
+&lt;p&gt;Why is that?  We get around two to three new bookmarking sites each month. Why most of them fail? Why some of us are still looking for a way to save their bookmarks?
+
+&lt;/p&gt;
+&lt;p&gt;Even despite anyone trying to create a bookmarking site can find what the &quot;not-yet-satisfied&quot; users want. It is easy. Just perform a quick search and tons of comment and feedback will appear. Here are some from Hacker News:
+
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;i&gt;&quot;I mainly want this so that I can organize them (delete, properly name, putting them into different folders, etc) and download them as html.&quot;&lt;/i&gt;&lt;/li&gt;
+&lt;li&gt;&lt;i&gt;&quot;Apart from cross device availability, please make collaboration easier. Many times I bookmark pages for later market research or sharing it with my coworkers&quot;&lt;/i&gt;&lt;/li&gt;
+&lt;li&gt;&lt;i&gt;&quot;... really simple and good search, RSS for tags, syncing with my bookmarks on all the browsers&quot;&lt;/i&gt;&lt;/li&gt;
+&lt;li&gt;&lt;i&gt;&quot;... letting me save my bookmarks to a bookmark file readable by Firefox&quot;&lt;/i&gt;&lt;/li&gt;
+&lt;li&gt;&lt;i&gt;&quot;They have to shown thats it&apos;s really really easy before they become converts. &quot;&lt;/i&gt;&lt;/li&gt;
+&lt;li&gt;&lt;i&gt;&quot;I can&apos;t be bothered with tagging or confirmation dialogs. I just want to press a single button and have the browser remember it.&quot;&lt;/i&gt;&lt;/li&gt;
+&lt;li&gt;&lt;i&gt;&quot;I wish there was a program that let you import HTML/JSON files into it from FF, IE, Chrome, Safari, etc then had some good organization features almost exactly like firefox. It should also have the ability to delete duplicate links, organize links, put tags, create folders, etc.&quot;&lt;/i&gt;&lt;/li&gt;
+&lt;li&gt;&lt;i&gt;&quot;I really want a private bookmarking thing that will: i) Import all my bookmarks.  ii) Gradually crawl images for all those bookmarks. iii) Display everything in a pinterest style grid iv) allow me to drag and drop links around; to add dividers; etc v) allow me to add tags or descriptions etc.&quot;&lt;/i&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I came to the conclution that bookmarking proved to be hard. It is not just about saving some URLs. It is so much more than that. Way more complex than we think it is.
+
+&lt;/p&gt;
+&lt;p&gt;If some new app wants to get that remaining market, something is clear, it has to be disruptive. 
+&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>Bitcoins in Argentina</title>
       <link>http://dfernandez.me/articles/4_Bitcoins_in_Argentina/</link>
