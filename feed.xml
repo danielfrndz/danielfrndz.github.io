@@ -9,31 +9,31 @@
     <generator>The mighty Wintersmith</generator>
     <language>en</language>
     <item>
-      <title>Co-developing within over 13,000 miles of distance</title>
+      <title>Co-developing over 13,000 miles of distance</title>
       <link>http://dfernandez.me/articles/6_Codeveloping_over_13000_miles/</link>
       <pubDate>Sat, 15 Jun 2013 09:00:00 -0300</pubDate>
       <guid isPermaLink="true">http://dfernandez.me/articles/6_Codeveloping_over_13000_miles/</guid>
       <author></author>
-      <description>&lt;p&gt;Every time I tell my friends from Argentina that I am working on &lt;a href=&quot;http://listboard.it/&quot; target=&quot;_blank&quot;&gt;Listboard.it&lt;/a&gt; with a developer from Russia, they ask me &quot;How do you do it?&quot;. It is clear why they ask. Denis and I are over &lt;b&gt;13,500 miles&lt;/b&gt; of distance (over &lt;b&gt;8,300 km&lt;/b&gt;), we have our full time jobs and, even worse, we are in completely different time zones. Luckily for us, &lt;b&gt;&quot;developers developed great developing tools&quot;&lt;/b&gt; =). What I mean is that current applications to manage and coordinate development are amazing. They make our life so much easier.
+      <description>&lt;p&gt;Every time I tell my friends from Argentina that I am working on &lt;a href=&quot;http://listboard.it/&quot; target=&quot;_blank&quot;&gt;Listboard.it&lt;/a&gt; with a developer from Russia, they ask me &quot;How do you do it?&quot; It is clear why they ask. Denis and I are over &lt;b&gt;13,500 miles&lt;/b&gt; of distance (over &lt;b&gt;8,300 km&lt;/b&gt;), we have our full time jobs and, even worse, we are in completely different time zones. Luckily for us, &lt;b&gt;&quot;developers developed great developing tools&quot;&lt;/b&gt; =). What I mean is that current applications to manage and coordinate development are amazing. They make our life so much easier.
 
 &lt;/p&gt;
-&lt;p&gt;Weather you are working 2 blocks or thousand of miles away, there is almost no difference. Distance is not a big deal thanks to Internet. That is why all the data we generate for our project (code, notes, documents, stylesheets, pictures, etc) is always kept on the Web. Our tools have access to the Internet and some are directly used from a browser. 
+&lt;p&gt;Whether you are working 2 blocks or thousands of miles away, there is almost no difference. Distance is not a big deal thanks to Internet. That is why all the data we generate for our project (code, notes, documents, stylesheets, pictures, etc) is always kept on the Web. Our tools have access to the Internet and some are directly used from a browser. 
 
 &lt;/p&gt;
-&lt;p&gt;Maybe, the big challenge is having different time zones. We both have our full time jobs and when I have free time to work on &lt;a href=&quot;http://listboard.it/&quot; target=&quot;_blank&quot;&gt;Listboard.it&lt;/a&gt; (&lt;b&gt;6pm to 11pm my time&lt;/b&gt;), Denis is sleeping (&lt;b&gt;1 am to 5am his time&lt;/b&gt;). Same problem when he codes. We never work both at the same time on the project and yet we manage to perfectly coordinate. We know what each of us is working on, our code is always synced, we have an active communication and we never block each other work.
+&lt;p&gt;Maybe, the big challenge is having different time zones. We both have our full time jobs and when I have free time to work on &lt;a href=&quot;http://listboard.it/&quot; target=&quot;_blank&quot;&gt;Listboard.it&lt;/a&gt; (&lt;b&gt;6pm to 11pm my time&lt;/b&gt;), Denis is sleeping (&lt;b&gt;1 am to 5am his time&lt;/b&gt;). Same problem when he codes. We never work both at the same time on the project and yet we manage to perfectly coordinate. We know what each of us is working on, our code is always synced, we have an active communication and we never block each other&apos;s work.
 
 &lt;/p&gt;
-&lt;p&gt;How we do that? Well it is not magic but only 5 awesome tools. I will not get into much detail on how they work, but mention them:
+&lt;p&gt;How do we do that? Well, it is not magic, but only 5 awesome tools. I will not get into much detail on how they work, just mention them:
 
 &lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;u&gt;&lt;a href=&quot;https://trello.com/&quot; target=&quot;_blank&quot;&gt;Trello&lt;/a&gt;&lt;/u&gt;: maybe the most important one, we use it to coordinate future, current and finished tasks.&lt;/li&gt;
-&lt;li&gt;&lt;u&gt;&lt;a href=&quot;https://drive.google.com&quot; target=&quot;_blank&quot;&gt;Google drive&lt;/a&gt;&lt;/u&gt;: helps us save and share all long documentation.&lt;/li&gt;
+&lt;li&gt;&lt;u&gt;&lt;a href=&quot;https://trello.com/&quot; target=&quot;_blank&quot;&gt;Trello&lt;/a&gt;&lt;/u&gt;: maybe the most important one; we use it to coordinate future, current and finished tasks.&lt;/li&gt;
+&lt;li&gt;&lt;u&gt;&lt;a href=&quot;https://drive.google.com&quot; target=&quot;_blank&quot;&gt;Google drive&lt;/a&gt;&lt;/u&gt;: helps us save and share large documents.&lt;/li&gt;
 &lt;li&gt;&lt;u&gt;&lt;a href=&quot;https://bitbucket.org/&quot; target=&quot;_blank&quot;&gt;Bitbucket (git)&lt;/a&gt;&lt;/u&gt;: keeps our code synced, lets us do code review and manage branches per task.&lt;/li&gt;
-&lt;li&gt;&lt;u&gt;Email&lt;/u&gt;: we use it to send updates on what we have worked on or when there is something important to notify the other developer.&lt;/li&gt;
-&lt;li&gt;&lt;u&gt;&lt;a href=&quot;http://www.skype.com/&quot; target=&quot;_blank&quot;&gt;Skype&lt;/a&gt;&lt;/u&gt;: although we do not use it that much, whenever we have something to discuss that will be too long by email, we chat 10 minutes on our free time.&lt;/li&gt;
+&lt;li&gt;&lt;u&gt;Email&lt;/u&gt;: we use it to send updates on what we have worked on or when there is something important to notify the other developer about.&lt;/li&gt;
+&lt;li&gt;&lt;u&gt;&lt;a href=&quot;http://www.skype.com/&quot; target=&quot;_blank&quot;&gt;Skype&lt;/a&gt;&lt;/u&gt;: although we do not use it that much, whenever we have something that will be too long to discuss by email, we chat 10 minutes on our free time.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;I have to say that it helps a lot that Denis is a great person and we never had any problems. We both love what we do and are trying to build an excellent &lt;a href=&quot;http://listboard.it/&quot; target=&quot;_blank&quot;&gt; application&lt;/a&gt;. If you are interested on knowing more about our product or becoming an early tester, feel free to &lt;a href=&quot;mailto:daniel@listboard.it&quot;&gt;email me&lt;/a&gt;.
+&lt;p&gt;I have to admit that it helps a lot that Denis is a great person and we have never had any problem. We both love what we do and are trying to build an excellent &lt;a href=&quot;http://listboard.it/&quot; target=&quot;_blank&quot;&gt; application&lt;/a&gt;. If you are interested on knowing more about our product or becoming an early tester, feel free to &lt;a href=&quot;mailto:daniel@listboard.it&quot;&gt;email me&lt;/a&gt;.
 
 
 
