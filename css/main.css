@@ -272,9 +272,11 @@ pre code {
   color: #fff;
   padding: 5px 10px;
   font-weight: bold;  
+  border: none;
 }
 
 .button_red:hover {
+  cursor: pointer;
   text-decoration: none;
 }
 
