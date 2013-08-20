@@ -5,9 +5,34 @@
     <atom:link href="http://dfernandez.me/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://dfernandez.me</link>
     <description>My personal blog</description>
-    <pubDate>Sat, 15 Jun 2013 09:00:00 -0300</pubDate>
+    <pubDate>Wed, 24 Jul 2013 09:00:00 -0300</pubDate>
     <generator>The mighty Wintersmith</generator>
     <language>en</language>
+    <item>
+      <title>China hits Listboard.it</title>
+      <link>http://dfernandez.me/articles/China_hits_Listboard.it/</link>
+      <pubDate>Wed, 24 Jul 2013 09:00:00 -0300</pubDate>
+      <guid isPermaLink="true">http://dfernandez.me/articles/China_hits_Listboard.it/</guid>
+      <author></author>
+      <description>&lt;p&gt;A couple of weeks ago, I noticed that suddenly &lt;b&gt;many users registered&lt;/b&gt; to &lt;a href=&quot;http://listboard.it/&quot; target=&quot;_blank&quot;&gt;Listboard.it&lt;/a&gt;. First, I thought that it was some sort of spam, but later, site analytics showed me that they were all unique visitors coming mostly &lt;b&gt;from China&lt;/b&gt; thanks &lt;a href=&quot;http://www.oschina.net/news/43011/6_codeveloping_over_8300_miles&quot; target=&quot;_blank&quot;&gt;to an article from oschina.net&lt;/a&gt; that referred our site product. 
+
+&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/articles/article_china.png&quot; alt=&quot;Chinese article capture&quot;/&gt; 
+
+&lt;/p&gt;
+&lt;p&gt;Google translator was a big help here as I know zero Chinese. It helped me &lt;b&gt;dig deeper&lt;/b&gt; and realized that it was not only an article about &lt;a href=&quot;http://listboard.it/&quot; target=&quot;_blank&quot;&gt;Listboard.it&lt;/a&gt;, but one of &lt;a href=&quot;http://dfernandez.me/articles/6_Codeveloping_over_8300_miles/&quot; target=&quot;_blank&quot;&gt;my old posts&lt;/a&gt; translated to Chinese. 
+
+&lt;/p&gt;
+&lt;p&gt;It said almost the same except for one part that called my attention. I wrote that I used &lt;b&gt;Google Drive&lt;/b&gt; to manage large documents while they wrote that I use &lt;b&gt;Dropbox&lt;/b&gt;. Immediately, I recalled why the did that. Google Drive is &lt;a href=&quot;https://en.greatfire.org/https/drive.google.com&quot; target=&quot;_blank&quot;&gt;blocked on China&lt;/a&gt;. 
+
+&lt;/p&gt;
+&lt;p&gt;They also added some sort of picture that was very commented on the site. Not exactly the way I work, but plays well with the article.
+
+&lt;/p&gt;
+&lt;p&gt;It was a very interesting finding and, well, I cannot complain as &lt;a href=&quot;http://listboard.it/&quot; target=&quot;_blank&quot;&gt;Listboard.it&lt;/a&gt; got over &lt;b&gt;200 subscriptions&lt;/b&gt; thanks to it!
+&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>Co-developing over 8,300 miles of distance</title>
       <link>http://dfernandez.me/articles/6_Codeveloping_over_8300_miles/</link>
