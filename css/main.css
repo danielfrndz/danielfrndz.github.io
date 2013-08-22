@@ -175,8 +175,13 @@ article.post {
   margin-bottom: 140px;
 }
 
+article.post ul.numbered li {
+    list-style-type: decimal;
+}
+
 article.post .content img {
   max-width: 100%;
+  margin-bottom: 20px;
 }
 
 article.post header {

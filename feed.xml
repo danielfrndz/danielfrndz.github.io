@@ -5,9 +5,74 @@
     <atom:link href="http://dfernandez.me/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://dfernandez.me</link>
     <description>My personal blog</description>
-    <pubDate>Wed, 24 Jul 2013 09:00:00 -0300</pubDate>
+    <pubDate>Thu, 22 Aug 2013 09:00:00 -0300</pubDate>
     <generator>The mighty Wintersmith</generator>
     <language>en</language>
+    <item>
+      <title>Too many tabs opened?</title>
+      <link>http://dfernandez.me/articles/too_many_tabs_opened/</link>
+      <pubDate>Thu, 22 Aug 2013 09:00:00 -0300</pubDate>
+      <guid isPermaLink="true">http://dfernandez.me/articles/too_many_tabs_opened/</guid>
+      <author></author>
+      <description>&lt;p&gt;&lt;img src=&quot;/images/articles/too_many_tabs_capture.png&quot; alt=&quot;Too many tabs opened capture&quot;/&gt; 
+
+&lt;/p&gt;
+&lt;p&gt;
+&lt;h3&gt;Have you ever had so many tabs opened that favicons start dissapearing?&lt;/h3&gt;
+
+&lt;h3&gt;Or wait eternal minutes to recover from a browser crash?&lt;/h3&gt;
+
+&lt;h3&gt;And then try to find from what tab the sound is coming from?&lt;/h3&gt;
+&lt;/p&gt;
+
+&lt;p&gt;If you experienced one of those things, welcome to the &lt;b&gt;&quot;too many tabs&quot;&lt;/b&gt; club. Do not worry, some members have &lt;a href=&quot;https://news.ycombinator.com/item?id=6147583&quot; target=&quot;_blank&quot;&gt;over 300 tabs opened&lt;/a&gt;. Outsiders cannot understand how we can manage all those tabs at the same time, they think there is a serious problem with us.
+
+&lt;/p&gt;
+&lt;p&gt;The truth? We are not managing all those tabs, we are just &lt;b&gt;piling them up&lt;/b&gt;.
+
+&lt;/p&gt;
+&lt;p&gt;It is clear that tabs &lt;b&gt;perform an important role&lt;/b&gt; in the way we navigate today. I got so used to them that is hard to remember those days when browsers did not implemented tab functionality. I tend to &lt;b&gt;abuse the &quot;Open in New Tab&quot;&lt;/b&gt; option.
+
+&lt;/p&gt;
+&lt;p&gt;However, when I take a detailed look at my browser tabs, I find that most of them are things that I am &lt;b&gt;not using right now&lt;/b&gt; and I do &lt;b&gt;not even want to bookmark them for the future&lt;/b&gt; (takes time and they get mixed with my bookmarks). I just want to &lt;b&gt;check them later&lt;/b&gt;. That means that I may need them later to work, to share with my friends or to read during my free time. 
+
+&lt;/p&gt;
+&lt;p&gt;Of course there are tabs that I like to have constantly opened like Gmail, but from my current &lt;b&gt;98&lt;/b&gt; opened tabs, I only need &lt;b&gt;5&lt;/b&gt; right now. &lt;b&gt;That is only a 5%!&lt;/b&gt; 
+
+&lt;/p&gt;
+&lt;p&gt;If I had a way to freeze the tabs I do not use, I could &lt;b&gt;free some memory&lt;/b&gt;.
+
+&lt;/p&gt;
+&lt;p&gt;That is why my partner and I are building &lt;a href=&quot;http://listboard.it/&quot; target=&quot;_blank&quot;&gt;Listboard.it&lt;/a&gt;.
+
+&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/articles/listboard_it_capture.png&quot; alt=&quot;Listboard.it capture&quot;/&gt; 
+
+&lt;/p&gt;
+&lt;p&gt;With &lt;a href=&quot;http://listboard.it/&quot; target=&quot;_blank&quot;&gt;Listboard.it&lt;/a&gt;, you keep &lt;b&gt;your browser(s) in sync on real time&lt;/b&gt; and easily &lt;b&gt;drag windows or tabs to a later listboard&lt;/b&gt;. After dragging a tab, it will automatically close. Then you can recover those windows/tabs whenever you want.
+
+&lt;/p&gt;
+&lt;p&gt;Are you worried about losing the tab context? Trust me, &lt;b&gt;you can always get the context back&lt;/b&gt;. It does not justify keeping the tab opened.
+
+&lt;/p&gt;
+&lt;p&gt;You &lt;b&gt;can also bookmark tabs&lt;/b&gt; by just dragging them to a future listboard and organize them using hierarchical lists. Also, &lt;a href=&quot;http://listboard.it/&quot; target=&quot;_blank&quot;&gt;Listboard.it&lt;/a&gt; understands that &lt;b&gt;the 3 steps of bookmarking do not always happen at the same time&lt;/b&gt;:
+&lt;/p&gt;
+&lt;p&gt;&lt;ul class=&quot;numbered&quot;&gt;
+    &lt;li&gt;Open an URL&lt;/li&gt;
+    &lt;li&gt;Analyze the content&lt;/li&gt;
+    &lt;li&gt;Save it&lt;/li&gt;
+&lt;/ul&gt;
+Step 2 can happen a day after step 1.
+
+&lt;/p&gt;
+&lt;p&gt;So if are part of the club, want to free some memory and agree that &lt;b&gt;bookmarking is not the solution&lt;/b&gt;, feel free to &lt;a href=&quot;http://listboard.it/&quot; target=&quot;_blank&quot;&gt;register for early testing&lt;/a&gt; or share your comment on HN. 
+
+&lt;/p&gt;
+&lt;p&gt;I would love to hear your opinion.
+
+&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>China hits Listboard.it</title>
       <link>http://dfernandez.me/articles/China_hits_Listboard.it/</link>
