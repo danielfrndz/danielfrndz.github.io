@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Cross Domain HTTP Requests - Daniel Fernandez
+    </title>
+    <link rel="alternate" href="http://dfernandez.me/feed.xml" type="application/rss+xml" title="My personal blog">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Fredericka+the+Great">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body>
+    <header>
+      <div class="inner">
+        <h1><a href="http://dfernandez.me">Daniel Fernandez</a></h1>
+        <div class="icons">         <a href="/suscribe.html" target="_blank"><img src="/images/rss.png" height="56px" width="56px"></a><a href="https://twitter.com/danielfrndz" target="_blank"><img src="/images/twitter.png" height="56px" width="56px"></a><a href="http://ar.linkedin.com/in/danielmartinfernandez" target="_blank"><img src="/images/linkedin.png" height="56px" width="56px"></a></div>
+        <div class="options"><a href="/suscribe.html" target="_blank">Suscribe</a><a href="https://github.com/danielfrndz">Github          </a><a href="/about.html">About          </a></div>
+      </div>
+    </header>
+    <div id="content">
+      <article class="post">
+        <header>
+          <h2 class="title"><a href="/articles/cross_domain_http_requests/">Cross Domain HTTP Requests</a></h2><span class="date">October 25, 2013</span>
+        </header>
+        <section class="content"><p>I always tried to avoid doing <strong>cross domain HTTP request</strong> as I had the feeling it was not secure enough. However, not too long ago, I had to implement it for a project I am working on and it lead me to something called <a target="_blank" href="http://www.w3.org/TR/cors/">Cross-Origin Resource Sharing</a>, also know as <strong>CORS</strong>. I found that making cross domain HTTP requests, <strong>is not as hard or insecure as I thought it was</strong> (as long as you do it correctly).
+
+</p>
+<p>So lets move directly to the code to check it out. Here is a <strong>GET request made from origin.com</strong>:
+
+</p>
+<pre><code><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();
+xhr.open(<span class="string">'GET'</span>, <span class="string">'http://destination.com/dogs?size=big'</span>,<span class="keyword">true</span>);    
+xhr.onreadystatechange = <span class="keyword">function</span>(e) {
+    <span class="keyword">if</span> (<span class="keyword">this</span>.readyState == <span class="number">4</span> &amp;&amp; <span class="keyword">this</span>.status == <span class="number">200</span>) {
+        console.log(<span class="keyword">this</span>.responseText);
+    }
+}
+xhr.send(<span class="keyword">null</span>);</code></pre>
+<p>and the browser will create a <strong>request with the following headers</strong>:
+
+</p>
+<pre><code>GET http:<span class="comment">//destination.com/dogs HTTP/1.1    </span>
+Origin: http:<span class="comment">//origin.com</span></code></pre>
+<p>In order for the server to accept the call, it has to include these <strong>headers in its response</strong>:
+
+</p>
+<pre><code>Access-Control-Allow-Origin: http:<span class="comment">//origin.com</span></code></pre>
+<p>The Access-Control-Allow-Origin response header will <strong>tell the browser that the origin is allowed</strong> and it will process the response. 
+
+</p>
+<p>Sometimes, you will need to do manage also <strong>HTTP authentication</strong> on cross domain HTTP calls. For example, lets say that you need make a call from <strong>origin.com to destination.com with destination.com cookies</strong> so the server authenticates the user. The browser will not send those cookies by default, but you need to force them setting the <strong>withCredentials property to true</strong>. 
+
+</p>
+<p>Here is a POST example <strong>from origin.com that sends destination.com cookies</strong>:
+
+</p>
+<pre><code><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();
+
+xhr.open(<span class="string">'POST'</span>, <span class="string">'http://destination.com/dogs'</span>,<span class="keyword">true</span>);
+xhr.setRequestHeader(<span class="string">"Content-type"</span>, <span class="string">"application/x-www-form-urlencoded"</span>);
+xhr.withCredentials = <span class="keyword">true</span> ;
+xhr.onreadystatechange = <span class="keyword">function</span>(e) {
+    <span class="keyword">if</span> (<span class="keyword">this</span>.readyState == <span class="number">4</span> &amp;&amp; <span class="keyword">this</span>.status == <span class="number">200</span>) {
+        console.log(<span class="keyword">this</span>.responseText);
+    }
+}
+xhr.send(<span class="string">'name=rambo'</span>);</code></pre>
+<p>In this case, the server will not only need to include &quot;Access-Control-Allow-Origin&quot; header to accept the call but also <strong>&quot;Access-Control-Allow-Credentials&quot;</strong>: 
+
+</p>
+<pre><code>    Access-Control-Allow-Origin: http:<span class="comment">//origin.com</span>
+    Access-Control-Allow-Credentials: <span class="keyword">true</span></code></pre>
+<p>Findally, some <strong>important notes</strong> to take into account:
+
+</p>
+<ul>
+<li><p>Server can set the header <strong>&quot;Access-Control-Allow-Origin&quot; to &quot;*&quot;</strong> in order to allow any origin. But if set to &quot;*&quot;, then <strong>&quot;Access-Control-Allow-Credentials&quot; cannot be set to true</strong>.</p>
+</li>
+<li><p>The browser <strong>only includes the &quot;Origin&quot; header when the request is cross-origin</strong></p>
+</li>
+</ul>
+<ul>
+<li><strong>IE has limited support</strong> on CORS</li>
+</ul>
+<p>Hope you find it useful!</p>
+</section>
+      </article>
+    </div>
+    <footer>
+      <div class="inner">
+        <p>&copy; 2013 Daniel Fernandez</p>
+      </div>
+    </footer>
+    <script>
+      var _gaq=[['_setAccount','UA-23149481-1'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+  </body>
+</html>

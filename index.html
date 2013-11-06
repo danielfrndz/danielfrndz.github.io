@@ -19,6 +19,189 @@
     <div id="content">
       <article class="post">
         <header>
+          <h2 class="title"><a href="/articles/digitalocean_lost_our_data/">DigitalOcean lost all our data and gave us $500</a></h2><span class="date">November 6, 2013</span>
+        </header>
+        <section class="content"><p>We have recently launched <a href="http://listboard.it/" target="_blank">Listboard.it</a> on a <strong>single instance in DigitalOcean</strong> to start contacting people who had <strong>too many tabs opened on their browser</strong> and were interested on a solution. We received over 240 invitation requests and accepted some to start experimenting with it. Our active users were few so <strong>one instance was more than enough</strong>.
+
+</p>
+<p>Some days ago, we received an email from <strong>DigitalOcean Engineering</strong>:
+
+
+</p>
+<pre><code>We've had to unfortunately reboot your Droplet (webapp) due to an issue on the underlying physical node that the Droplet resides on.
+
+We are investigating the health of the physical node to determine whether this was a single incident or systemic.
+
+If the physical node does not pass health and safety checks it will be removed from the DigitalOcean pool and your Droplet will be auto-migrated to a new physical node. You will recieve a separate email should that event occur.
+
+If you have any questions related to this issue, please send us a ticket.
+https://www.digitalocean.com/support
+
+Happy coding,
+DigitalOcean</code></pre>
+<p><em>&quot;Well&quot;</em>, we thought. <em>&quot;No big deal. <strong>We are still on alpha</strong>. Our droplet is inaccessible, but no need to create a new one and deploy everything again. Our testing users are in contact with us and they will understand some downtime.&quot;.</em>
+
+</p>
+<p>However, <strong>six hours later</strong>, we got this email:
+
+
+</p>
+<pre><code>Hello,
+
+Early this morning we became aware that the hardware underlying your droplet experienced a dual drive failure.  As we use RAID5 this is an often unrecoverable situation.  However, our engineers made a best effort to recover the drives.
+
+Our investigation proved to be unsuccessful, and we chassis swapped the drives in case of device failure on the node.  Unfortunately, the drives in question were still unable to be rebuilt.
+
+At this time, we have concluded our work on this node.  The drives are lost permanently, and all customers on the node will be credited $500 to compensate for the loss of their data.  Hopefully this will compensate for what is clearly an inexcusable lapse in our monitoring of the health of this node.
+
+We are currently improving the design of our monitoring systems to hopefully provide preemptive detection for situations like this, enabling us to migrate customers off hardware before it becomes an issue.
+
+Please don't hesitate to reach out with any questions or concerns.  Thanks,
+
+Bodie
+DigitalOcean Engineering
+
+Affected Droplets:
+webapp</code></pre>
+<p><strong>Our server was dead. Just like that.</strong>
+
+</p>
+<p>We contacted DigitalOcean, but there was no turnaround. Everything was lost and they had no way to recover it. Luckily for us, <strong>we had backups</strong>. But our downtime was those 6 hours plus the time it took us to put everything up and running again.
+
+</p>
+<p>I think the lesson here is that <strong>even if your application is very young</strong>, maybe with one landing page to contact potential users, <strong>it is important that you always backup your data</strong>. And if you just launched and have a <strong>single instance running</strong>, let your alpha users know that <strong>there will probably be some downtime</strong>.
+
+
+
+</p>
+</section>
+      </article>
+      <article class="post">
+        <header>
+          <h2 class="title"><a href="/articles/cross_domain_http_requests/">Cross Domain HTTP Requests</a></h2><span class="date">October 25, 2013</span>
+        </header>
+        <section class="content"><p>I always tried to avoid doing <strong>cross domain HTTP request</strong> as I had the feeling it was not secure enough. However, not too long ago, I had to implement it for a project I am working on and it lead me to something called <a target="_blank" href="http://www.w3.org/TR/cors/">Cross-Origin Resource Sharing</a>, also know as <strong>CORS</strong>. I found that making cross domain HTTP requests, <strong>is not as hard or insecure as I thought it was</strong> (as long as you do it correctly).
+
+</p>
+<p>So lets move directly to the code to check it out. Here is a <strong>GET request made from origin.com</strong>:
+
+</p>
+<pre><code><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();
+xhr.open(<span class="string">'GET'</span>, <span class="string">'http://destination.com/dogs?size=big'</span>,<span class="keyword">true</span>);    
+xhr.onreadystatechange = <span class="keyword">function</span>(e) {
+    <span class="keyword">if</span> (<span class="keyword">this</span>.readyState == <span class="number">4</span> &amp;&amp; <span class="keyword">this</span>.status == <span class="number">200</span>) {
+        console.log(<span class="keyword">this</span>.responseText);
+    }
+}
+xhr.send(<span class="keyword">null</span>);</code></pre>
+<p>and the browser will create a <strong>request with the following headers</strong>:
+
+</p>
+<pre><code>GET http:<span class="comment">//destination.com/dogs HTTP/1.1    </span>
+Origin: http:<span class="comment">//origin.com</span></code></pre>
+<p>In order for the server to accept the call, it has to include these <strong>headers in its response</strong>:
+
+</p>
+<pre><code>Access-Control-Allow-Origin: http:<span class="comment">//origin.com</span></code></pre>
+<p>The Access-Control-Allow-Origin response header will <strong>tell the browser that the origin is allowed</strong> and it will process the response. 
+
+</p>
+<p>Sometimes, you will need to do manage also <strong>HTTP authentication</strong> on cross domain HTTP calls. For example, lets say that you need make a call from <strong>origin.com to destination.com with destination.com cookies</strong> so the server authenticates the user. The browser will not send those cookies by default, but you need to force them setting the <strong>withCredentials property to true</strong>. 
+
+</p>
+<p>Here is a POST example <strong>from origin.com that sends destination.com cookies</strong>:
+
+</p>
+<pre><code><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();
+
+xhr.open(<span class="string">'POST'</span>, <span class="string">'http://destination.com/dogs'</span>,<span class="keyword">true</span>);
+xhr.setRequestHeader(<span class="string">"Content-type"</span>, <span class="string">"application/x-www-form-urlencoded"</span>);
+xhr.withCredentials = <span class="keyword">true</span> ;
+xhr.onreadystatechange = <span class="keyword">function</span>(e) {
+    <span class="keyword">if</span> (<span class="keyword">this</span>.readyState == <span class="number">4</span> &amp;&amp; <span class="keyword">this</span>.status == <span class="number">200</span>) {
+        console.log(<span class="keyword">this</span>.responseText);
+    }
+}
+xhr.send(<span class="string">'name=rambo'</span>);</code></pre>
+<p>In this case, the server will not only need to include &quot;Access-Control-Allow-Origin&quot; header to accept the call but also <strong>&quot;Access-Control-Allow-Credentials&quot;</strong>: 
+
+</p>
+<pre><code>    Access-Control-Allow-Origin: http:<span class="comment">//origin.com</span>
+    Access-Control-Allow-Credentials: <span class="keyword">true</span></code></pre>
+<p>Findally, some <strong>important notes</strong> to take into account:
+
+</p>
+<ul>
+<li><p>Server can set the header <strong>&quot;Access-Control-Allow-Origin&quot; to &quot;*&quot;</strong> in order to allow any origin. But if set to &quot;*&quot;, then <strong>&quot;Access-Control-Allow-Credentials&quot; cannot be set to true</strong>.</p>
+</li>
+<li><p>The browser <strong>only includes the &quot;Origin&quot; header when the request is cross-origin</strong></p>
+</li>
+</ul>
+<ul>
+<li><strong>IE has limited support</strong> on CORS</li>
+</ul>
+<p>Hope you find it useful!</p>
+</section>
+      </article>
+      <article class="post">
+        <header>
+          <h2 class="title"><a href="/articles/listboard_it_updates/">Listboard.it updates</a></h2><span class="date">October 5, 2013</span>
+        </header>
+        <section class="content"><p><img src="/images/articles/capture-2013-11-06.png" alt="Listboard.it screenshot"/> 
+
+</p>
+<p>At <a href="http://listboard.it/" target="_blank">Listboard.it</a> we keep iterating over different ideas to improve the user experience and reduce the steps that it takes to use the site. So here are some of the latest things we are working on:
+
+</p>
+<ul>
+<li><p>Provide search of content across all open tabs .</p>
+</li>
+<li><p>Allow the user to easily froze tabs for later user.</p>
+</li>
+<li><p>Release the &quot;Archive&quot; panel to bookmarks tabs for future use.</p>
+</li>
+<li><p>Create new API that uses OAuth2</p>
+</li>
+</ul>
+<p>If you are intereting in knowing more about it, feel free to register at <a href="http://listboard.it/" target="_blank">here</a> .</p>
+</section>
+      </article>
+      <article class="post">
+        <header>
+          <h2 class="title"><a href="/articles/mongoose_array_field_update_problem/">Mongoose array field update problem</a></h2><span class="date">September 15, 2013</span>
+        </header>
+        <section class="content"><p>Recently, I struggled with a problem when saving a mongoose instance which had an array field.
+Whenever I saved the instance, <strong>the values of its array field were not propagated to the database</strong>.
+I checked the instance right before calling .save() and the array had its values loaded correctly. However after saving the instance, I could not find them on the database. 
+
+</p>
+<p>Doing some digging on the internet, I found that <strong>mongoose has a limitation</strong>.
+That instance is known as a <strong>Mixed Type</strong> because it includes embedded documents. So in order to propagate the changes to the database, it is needed to <strong>mark the array field as modified</strong>.
+
+</p>
+<p>For for example if you an instance called <strong>house</strong> has that has this schema:
+
+</p>
+<pre><code><span class="keyword">var</span> HouseSchema = <span class="keyword">new</span> Schema({
+    rooms: [
+        {type: Schema.ObjectId, ref: <span class="string">'Room'</span>}
+    ]
+});</code></pre>
+<p>when you update <strong>house.rooms</strong>, you need to call:
+
+
+</p>
+<pre><code>house.markModified(<span class="string">"rooms"</span>);
+house.save(<span class="keyword">function</span>(err) {
+});</code></pre>
+<p>You can find the reference <a target="_blank" href="http://mongoosejs.com/docs/schematypes.html#mixed">here</a>
+
+</p>
+<p><em>&quot;Mongoose loses the ability to auto detect/save those changes. To &quot;tell&quot; Mongoose that the value of a Mixed type has changed, call the .markModified(path) method of the document passing the path to the Mixed type you just changed.&quot;</em></p>
+</section>
+      </article>
+      <article class="post">
+        <header>
           <h2 class="title"><a href="/articles/too_many_tabs_opened/">Too many tabs opened?</a></h2><span class="date">August 22, 2013</span>
         </header>
         <section class="content"><p><img src="/images/articles/too_many_tabs_capture.png" alt="Too many tabs opened capture"/> 
@@ -76,144 +259,6 @@ Step 2 can happen a day after step 1.
 
 </p>
 <p>I would love to hear your opinion.
-
-</p>
-</section>
-      </article>
-      <article class="post">
-        <header>
-          <h2 class="title"><a href="/articles/China_hits_Listboard.it/">China hits Listboard.it</a></h2><span class="date">July 24, 2013</span>
-        </header>
-        <section class="content"><p>A couple of weeks ago, I noticed that suddenly <b>many users registered</b> to <a href="http://listboard.it/" target="_blank">Listboard.it</a>. First, I thought that it was some sort of spam, but later, site analytics showed me that they were all unique visitors coming mostly <b>from China</b> thanks <a href="http://www.oschina.net/news/43011/6_codeveloping_over_8300_miles" target="_blank">to an article from oschina.net</a> that referred our site product. 
-
-</p>
-<p><img src="/images/articles/article_china.png" alt="Chinese article capture"/> 
-
-</p>
-<p>Google translator was a big help here as I know zero Chinese. It helped me <b>dig deeper</b> and realized that it was not only an article about <a href="http://listboard.it/" target="_blank">Listboard.it</a>, but one of <a href="http://dfernandez.me/articles/6_Codeveloping_over_8300_miles/" target="_blank">my old posts</a> translated to Chinese. 
-
-</p>
-<p>It said almost the same except for one part that called my attention. I wrote that I used <b>Google Drive</b> to manage large documents while they wrote that I use <b>Dropbox</b>. Immediately, I recalled why the did that. Google Drive is <a href="https://en.greatfire.org/https/drive.google.com" target="_blank">blocked on China</a>. 
-
-</p>
-<p>They also added some sort of picture that was very commented on the site. Not exactly the way I work, but plays well with the article.
-
-</p>
-<p>It was a very interesting finding and, well, I cannot complain as <a href="http://listboard.it/" target="_blank">Listboard.it</a> got over <b>200 subscriptions</b> thanks to it!
-</p>
-</section>
-      </article>
-      <article class="post">
-        <header>
-          <h2 class="title"><a href="/articles/6_Codeveloping_over_8300_miles/">Co-developing over 8,300 miles of distance</a></h2><span class="date">June 15, 2013</span>
-        </header>
-        <section class="content"><p>Every time I tell my friends from Argentina that I am working on <a href="http://listboard.it/" target="_blank">Listboard.it</a> with a developer from Russia, they ask me &quot;How do you do it?&quot; It is clear why they ask. Denis and I are over <b>8,300 miles</b> of distance (over <b>13,300 km</b>), we have our full time jobs and, even worse, we are in completely different time zones. Luckily for us, <b>&quot;developers developed great developing tools&quot;</b>. What I mean is that current applications to manage and coordinate development are amazing. They make our life so much easier.
-
-</p>
-<p>Whether you are working 2 blocks or thousands of miles away, there is almost no difference. Distance is not a big deal thanks to Internet. That is why all the data we generate for our project (code, notes, documents, stylesheets, pictures, etc) is always kept on the Web. Our tools have access to the Internet and some are directly used from a browser. 
-
-</p>
-<p>Maybe, the big challenge is having different time zones. We both have our full time jobs and when I have free time to work on <a href="http://listboard.it/" target="_blank">Listboard.it</a> (<b>6pm to 11pm my time</b>), Denis is sleeping (<b>1 am to 5am his time</b>). Same problem when he codes. We never work both at the same time on the project and yet we manage to perfectly coordinate. We know what each of us is working on, our code is always synced, we have an active communication and we never block each other&apos;s work.
-
-</p>
-<p>How do we do that? Well, it is not magic, but only 5 awesome tools. I will not get into much detail on how they work, just mention them:
-
-</p>
-<ul>
-<li><u><a href="https://trello.com/" target="_blank">Trello</a></u>: maybe the most important one; we use it to coordinate future, current and finished tasks.</li>
-<li><u><a href="https://drive.google.com" target="_blank">Google drive</a></u>: helps us save and share large documents.</li>
-<li><u><a href="https://bitbucket.org/" target="_blank">Bitbucket (git)</a></u>: keeps our code synced, lets us do code review and manage branches per task.</li>
-<li><u>Email</u>: we use it to send updates on what we have worked on or when there is something important to notify the other developer about.</li>
-<li><u><a href="http://www.skype.com/" target="_blank">Skype</a></u>: although we do not use it that much, whenever we have something that will be too long to discuss by email, we chat 10 minutes on our free time.</li>
-</ul>
-<p>I have to admit that it helps a lot that Denis is a great person and we have never had any problem. We both love what we do and are trying to build an excellent <a href="http://listboard.it/" target="_blank"> application</a>. If you are interested on knowing more about our product or becoming an early tester, feel free to <a href="http://listboard.it/" target="_blank"> register</a>.
-
-
-
-</p>
-</section>
-      </article>
-      <article class="post">
-        <header>
-          <h2 class="title"><a href="/articles/5_Bookmarking_is_much_more_complex_than_you_think/">Bookmarking is much more complex than you think</a></h2><span class="date">May 17, 2013</span>
-        </header>
-        <section class="content"><p>Long time ago I decided to work on a bookmarking site as a side project. If you are thinking &quot;not another bookmarking site please&quot;, <b>that is good!</b> It means that you know there are constant new attempts to save/organize/share bookmarks that keep failing. But you may also know that there is still an unsatisfied market. 
-
-</p>
-<p>Let me explain why I picked this side project.
-
-</p>
-<p>As many people out there, I constantly deal with the <a target="_blank" href="http://blog.williamting.com/posts/2012/10/30/why-we-bookmark/">three categories of bookmarking</a>: <b>Now, Later, and Future</b>. For those who never heard about those categories, here is a quick summary: 
-
-</p>
-<ul>
-<li><b>&quot;Now&quot;</b> is for URLs that you are using right <b>now</b> such as research URLs on your current project, Gmail, etc. (Yes, all those tabs that you have now open!); </li>
-<li><b>&quot;Later&quot;</b> category represents what you find interesting enough to take a deeper look <b>later</b> when you have more time available.</li>
-<li><b>&quot;Future&quot;</b> are the bookmarks you want to archive/organize to access someday in the long <b>future</b>.</li>
-</ul>
-<p>My problem is that I have to use different apps for each category. That makes it really difficult to smoothly move a bookmark from one category to another. If I use Pinboard for later and future bookmarks, I still end up with many opened tabs for what I am working right now.
-
-</p>
-<p>I have been long waiting for a solution that properly handles all three of them. But there is none so far (at least that I know). 
-
-</p>
-<p>Why is that?  We get around two to three new bookmarking sites each month. Why most of them fail? Why some of us are still looking for a way to save their bookmarks?
-
-</p>
-<p>Even despite anyone trying to create a bookmarking site can find what the &quot;not-yet-satisfied&quot; users want. It is easy. Just perform a quick search and tons of comment and feedback will appear. Here are some from Hacker News:
-
-</p>
-<ul>
-<li><i>&quot;I mainly want this so that I can organize them (delete, properly name, putting them into different folders, etc) and download them as html.&quot;</i></li>
-<li><i>&quot;Apart from cross device availability, please make collaboration easier. Many times I bookmark pages for later market research or sharing it with my coworkers&quot;</i></li>
-<li><i>&quot;... really simple and good search, RSS for tags, syncing with my bookmarks on all the browsers&quot;</i></li>
-<li><i>&quot;... letting me save my bookmarks to a bookmark file readable by Firefox&quot;</i></li>
-<li><i>&quot;They have to shown thats it&apos;s really really easy before they become converts. &quot;</i></li>
-<li><i>&quot;I can&apos;t be bothered with tagging or confirmation dialogs. I just want to press a single button and have the browser remember it.&quot;</i></li>
-<li><i>&quot;I wish there was a program that let you import HTML/JSON files into it from FF, IE, Chrome, Safari, etc then had some good organization features almost exactly like firefox. It should also have the ability to delete duplicate links, organize links, put tags, create folders, etc.&quot;</i></li>
-<li><i>&quot;I really want a private bookmarking thing that will: i) Import all my bookmarks.  ii) Gradually crawl images for all those bookmarks. iii) Display everything in a pinterest style grid iv) allow me to drag and drop links around; to add dividers; etc v) allow me to add tags or descriptions etc.&quot;</i></li>
-</ul>
-<p>I came to the conclution that bookmarking proved to be hard. It is not just about saving some URLs. It is so much more than that. Way more complex than we think it is.
-
-</p>
-<p>If some new app wants to get that remaining market, something is clear, it has to be disruptive. 
-
-</p>
-<p><b>UPDATE:</b> If you are interested in knowing more about the solution we are working on to manage bookmarks, visit <a href="http://listboard.it/" target="_blank"> Listboard.it</a>. You can even register to become an early tester!</p>
-</section>
-      </article>
-      <article class="post">
-        <header>
-          <h2 class="title"><a href="/articles/4_Bitcoins_in_Argentina/">Bitcoins in Argentina</a></h2><span class="date">April 23, 2013</span>
-        </header>
-        <section class="content"><div style="margin-bottom:20px;text-align:center"><img src="/images/articles/bitcoin_logo.png" alt="Bitcoin logo"/></div>
-
-<p>I read about Bitcoin back in 2011, but it was not until this year that I got really involved with it. For those who never heard about Bitcoin, it is just a new currency, like dollars or euros. Some people describe it as a &apos;digital currency&apos; or &apos;crypto-currency&apos;, but I prefer to use only the term &apos;currency&apos; to ease its adoption as suggested in this excellent <a target="_blank" href="http://thegenesisblock.com/five-easy-ways-you-can-make-bitcoin-a-mainstream-currency/">article</a> by Jonathan Stacke. 
-
-</p>
-<p>Without going into much details on how it works (I look forward to explain it in future posts), let just say that it operates thanks to the collective power of many connected computers. If you want more details right away, visit <a target="_blank" href="http://bitcoin.org/">Bitcoin&apos;s official site</a> or check this <a target="_blank" href="https://www.youtube.com/watch?v=Um63OQz3bjo">video</a>.
-
-</p>
-<p>The great thing about Bitcoin is that it is not regulated by any central authority. You can transfer money directly to another person with your computer or mobile. Wow! A non-regulated currency! ... wait, won´t that scare people? No. At least not here in Argentina where we know about regulations. Our goverment regulates the amount of dollars you can buy (regulates, not prohibit), so Bitcoin raises as an insteresting alternative currency.
-
-</p>
-<p>One week ago, <a target="_blank" href="http://bitcoinfilm.org/">Bitcoinfilm.org</a> created a documentary about Bitcoins in Argentina. 
-
-</p>
-<p>Here it is:
-
-</p>
-<p><iframe width="560" height="315" src="http://www.youtube.com/embed/e__m-w4N7NI" frameborder="0" allowfullscreen></iframe><br/>
-
-</p>
-<p>This video made its way to a major <a target="_blank" href="http://www.lanacion.com.ar/1575169-bitcoin-como-una-alternativa-a-las-restricciones-cambiarias-en-la-argentina#v_video_">Argentinian newspaper (spanish)</a> and I noticed that many friends starting talking about it, asking questions mostly. They were certainly interested in Bitcoin. Besides that, around 100 people assist to last <a href="http://www.meetup.com/Bitcoin-Buenos-Aires/events/110480272/">Bitcoin MeetUp in Buenos Aires</a> and it is not crazy to expect that more people will assist to future ones. 
-
-</p>
-<p>Those are all positive signs. You can tell that Argentina is slowly adopting it. There is still a long path down the road for Bitcoins, but it worth following it.
-
-</p>
-<p>Spread the word!
-
 
 </p>
 </section>

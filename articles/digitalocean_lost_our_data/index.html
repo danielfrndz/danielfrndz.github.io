@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>DigitalOcean lost all our data and gave us $500 - Daniel Fernandez
+    </title>
+    <link rel="alternate" href="http://dfernandez.me/feed.xml" type="application/rss+xml" title="My personal blog">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Fredericka+the+Great">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body>
+    <header>
+      <div class="inner">
+        <h1><a href="http://dfernandez.me">Daniel Fernandez</a></h1>
+        <div class="icons">         <a href="/suscribe.html" target="_blank"><img src="/images/rss.png" height="56px" width="56px"></a><a href="https://twitter.com/danielfrndz" target="_blank"><img src="/images/twitter.png" height="56px" width="56px"></a><a href="http://ar.linkedin.com/in/danielmartinfernandez" target="_blank"><img src="/images/linkedin.png" height="56px" width="56px"></a></div>
+        <div class="options"><a href="/suscribe.html" target="_blank">Suscribe</a><a href="https://github.com/danielfrndz">Github          </a><a href="/about.html">About          </a></div>
+      </div>
+    </header>
+    <div id="content">
+      <article class="post">
+        <header>
+          <h2 class="title"><a href="/articles/digitalocean_lost_our_data/">DigitalOcean lost all our data and gave us $500</a></h2><span class="date">November 6, 2013</span>
+        </header>
+        <section class="content"><p>We have recently launched <a href="http://listboard.it/" target="_blank">Listboard.it</a> on a <strong>single instance in DigitalOcean</strong> to start contacting people who had <strong>too many tabs opened on their browser</strong> and were interested on a solution. We received over 240 invitation requests and accepted some to start experimenting with it. Our active users were few so <strong>one instance was more than enough</strong>.
+
+</p>
+<p>Some days ago, we received an email from <strong>DigitalOcean Engineering</strong>:
+
+
+</p>
+<pre><code>We've had to unfortunately reboot your Droplet (webapp) due to an issue on the underlying physical node that the Droplet resides on.
+
+We are investigating the health of the physical node to determine whether this was a single incident or systemic.
+
+If the physical node does not pass health and safety checks it will be removed from the DigitalOcean pool and your Droplet will be auto-migrated to a new physical node. You will recieve a separate email should that event occur.
+
+If you have any questions related to this issue, please send us a ticket.
+https://www.digitalocean.com/support
+
+Happy coding,
+DigitalOcean</code></pre>
+<p><em>&quot;Well&quot;</em>, we thought. <em>&quot;No big deal. <strong>We are still on alpha</strong>. Our droplet is inaccessible, but no need to create a new one and deploy everything again. Our testing users are in contact with us and they will understand some downtime.&quot;.</em>
+
+</p>
+<p>However, <strong>six hours later</strong>, we got this email:
+
+
+</p>
+<pre><code>Hello,
+
+Early this morning we became aware that the hardware underlying your droplet experienced a dual drive failure.  As we use RAID5 this is an often unrecoverable situation.  However, our engineers made a best effort to recover the drives.
+
+Our investigation proved to be unsuccessful, and we chassis swapped the drives in case of device failure on the node.  Unfortunately, the drives in question were still unable to be rebuilt.
+
+At this time, we have concluded our work on this node.  The drives are lost permanently, and all customers on the node will be credited $500 to compensate for the loss of their data.  Hopefully this will compensate for what is clearly an inexcusable lapse in our monitoring of the health of this node.
+
+We are currently improving the design of our monitoring systems to hopefully provide preemptive detection for situations like this, enabling us to migrate customers off hardware before it becomes an issue.
+
+Please don't hesitate to reach out with any questions or concerns.  Thanks,
+
+Bodie
+DigitalOcean Engineering
+
+Affected Droplets:
+webapp</code></pre>
+<p><strong>Our server was dead. Just like that.</strong>
+
+</p>
+<p>We contacted DigitalOcean, but there was no turnaround. Everything was lost and they had no way to recover it. Luckily for us, <strong>we had backups</strong>. But our downtime was those 6 hours plus the time it took us to put everything up and running again.
+
+</p>
+<p>I think the lesson here is that <strong>even if your application is very young</strong>, maybe with one landing page to contact potential users, <strong>it is important that you always backup your data</strong>. And if you just launched and have a <strong>single instance running</strong>, let your alpha users know that <strong>there will probably be some downtime</strong>.
+
+
+
+</p>
+</section>
+      </article>
+    </div>
+    <footer>
+      <div class="inner">
+        <p>&copy; 2013 Daniel Fernandez</p>
+      </div>
+    </footer>
+    <script>
+      var _gaq=[['_setAccount','UA-23149481-1'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+  </body>
+</html>

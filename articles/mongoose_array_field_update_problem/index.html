@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Mongoose array field update problem - Daniel Fernandez
+    </title>
+    <link rel="alternate" href="http://dfernandez.me/feed.xml" type="application/rss+xml" title="My personal blog">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Fredericka+the+Great">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body>
+    <header>
+      <div class="inner">
+        <h1><a href="http://dfernandez.me">Daniel Fernandez</a></h1>
+        <div class="icons">         <a href="/suscribe.html" target="_blank"><img src="/images/rss.png" height="56px" width="56px"></a><a href="https://twitter.com/danielfrndz" target="_blank"><img src="/images/twitter.png" height="56px" width="56px"></a><a href="http://ar.linkedin.com/in/danielmartinfernandez" target="_blank"><img src="/images/linkedin.png" height="56px" width="56px"></a></div>
+        <div class="options"><a href="/suscribe.html" target="_blank">Suscribe</a><a href="https://github.com/danielfrndz">Github          </a><a href="/about.html">About          </a></div>
+      </div>
+    </header>
+    <div id="content">
+      <article class="post">
+        <header>
+          <h2 class="title"><a href="/articles/mongoose_array_field_update_problem/">Mongoose array field update problem</a></h2><span class="date">September 15, 2013</span>
+        </header>
+        <section class="content"><p>Recently, I struggled with a problem when saving a mongoose instance which had an array field.
+Whenever I saved the instance, <strong>the values of its array field were not propagated to the database</strong>.
+I checked the instance right before calling .save() and the array had its values loaded correctly. However after saving the instance, I could not find them on the database. 
+
+</p>
+<p>Doing some digging on the internet, I found that <strong>mongoose has a limitation</strong>.
+That instance is known as a <strong>Mixed Type</strong> because it includes embedded documents. So in order to propagate the changes to the database, it is needed to <strong>mark the array field as modified</strong>.
+
+</p>
+<p>For for example if you an instance called <strong>house</strong> has that has this schema:
+
+</p>
+<pre><code><span class="keyword">var</span> HouseSchema = <span class="keyword">new</span> Schema({
+    rooms: [
+        {type: Schema.ObjectId, ref: <span class="string">'Room'</span>}
+    ]
+});</code></pre>
+<p>when you update <strong>house.rooms</strong>, you need to call:
+
+
+</p>
+<pre><code>house.markModified(<span class="string">"rooms"</span>);
+house.save(<span class="keyword">function</span>(err) {
+});</code></pre>
+<p>You can find the reference <a target="_blank" href="http://mongoosejs.com/docs/schematypes.html#mixed">here</a>
+
+</p>
+<p><em>&quot;Mongoose loses the ability to auto detect/save those changes. To &quot;tell&quot; Mongoose that the value of a Mixed type has changed, call the .markModified(path) method of the document passing the path to the Mixed type you just changed.&quot;</em></p>
+</section>
+      </article>
+    </div>
+    <footer>
+      <div class="inner">
+        <p>&copy; 2013 Daniel Fernandez</p>
+      </div>
+    </footer>
+    <script>
+      var _gaq=[['_setAccount','UA-23149481-1'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+  </body>
+</html>

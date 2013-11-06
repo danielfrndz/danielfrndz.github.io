@@ -5,9 +5,200 @@
     <atom:link href="http://dfernandez.me/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://dfernandez.me</link>
     <description>My personal blog</description>
-    <pubDate>Thu, 22 Aug 2013 09:00:00 -0300</pubDate>
+    <pubDate>Wed, 06 Nov 2013 09:00:00 -0300</pubDate>
     <generator>The mighty Wintersmith</generator>
     <language>en</language>
+    <item>
+      <title>DigitalOcean lost all our data and gave us $500</title>
+      <link>http://dfernandez.me/articles/digitalocean_lost_our_data/</link>
+      <pubDate>Wed, 06 Nov 2013 09:00:00 -0300</pubDate>
+      <guid isPermaLink="true">http://dfernandez.me/articles/digitalocean_lost_our_data/</guid>
+      <author></author>
+      <description>&lt;p&gt;We have recently launched &lt;a href=&quot;http://listboard.it/&quot; target=&quot;_blank&quot;&gt;Listboard.it&lt;/a&gt; on a &lt;strong&gt;single instance in DigitalOcean&lt;/strong&gt; to start contacting people who had &lt;strong&gt;too many tabs opened on their browser&lt;/strong&gt; and were interested on a solution. We received over 240 invitation requests and accepted some to start experimenting with it. Our active users were few so &lt;strong&gt;one instance was more than enough&lt;/strong&gt;.
+
+&lt;/p&gt;
+&lt;p&gt;Some days ago, we received an email from &lt;strong&gt;DigitalOcean Engineering&lt;/strong&gt;:
+
+
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;We've had to unfortunately reboot your Droplet (webapp) due to an issue on the underlying physical node that the Droplet resides on.
+
+We are investigating the health of the physical node to determine whether this was a single incident or systemic.
+
+If the physical node does not pass health and safety checks it will be removed from the DigitalOcean pool and your Droplet will be auto-migrated to a new physical node. You will recieve a separate email should that event occur.
+
+If you have any questions related to this issue, please send us a ticket.
+https://www.digitalocean.com/support
+
+Happy coding,
+DigitalOcean&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;&quot;Well&quot;&lt;/em&gt;, we thought. &lt;em&gt;&quot;No big deal. &lt;strong&gt;We are still on alpha&lt;/strong&gt;. Our droplet is inaccessible, but no need to create a new one and deploy everything again. Our testing users are in contact with us and they will understand some downtime.&quot;.&lt;/em&gt;
+
+&lt;/p&gt;
+&lt;p&gt;However, &lt;strong&gt;six hours later&lt;/strong&gt;, we got this email:
+
+
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Hello,
+
+Early this morning we became aware that the hardware underlying your droplet experienced a dual drive failure.  As we use RAID5 this is an often unrecoverable situation.  However, our engineers made a best effort to recover the drives.
+
+Our investigation proved to be unsuccessful, and we chassis swapped the drives in case of device failure on the node.  Unfortunately, the drives in question were still unable to be rebuilt.
+
+At this time, we have concluded our work on this node.  The drives are lost permanently, and all customers on the node will be credited $500 to compensate for the loss of their data.  Hopefully this will compensate for what is clearly an inexcusable lapse in our monitoring of the health of this node.
+
+We are currently improving the design of our monitoring systems to hopefully provide preemptive detection for situations like this, enabling us to migrate customers off hardware before it becomes an issue.
+
+Please don't hesitate to reach out with any questions or concerns.  Thanks,
+
+Bodie
+DigitalOcean Engineering
+
+Affected Droplets:
+webapp&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Our server was dead. Just like that.&lt;/strong&gt;
+
+&lt;/p&gt;
+&lt;p&gt;We contacted DigitalOcean, but there was no turnaround. Everything was lost and they had no way to recover it. Luckily for us, &lt;strong&gt;we had backups&lt;/strong&gt;. But our downtime was those 6 hours plus the time it took us to put everything up and running again.
+
+&lt;/p&gt;
+&lt;p&gt;I think the lesson here is that &lt;strong&gt;even if your application is very young&lt;/strong&gt;, maybe with one landing page to contact potential users, &lt;strong&gt;it is important that you always backup your data&lt;/strong&gt;. And if you just launched and have a &lt;strong&gt;single instance running&lt;/strong&gt;, let your alpha users know that &lt;strong&gt;there will probably be some downtime&lt;/strong&gt;.
+
+
+
+&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Cross Domain HTTP Requests</title>
+      <link>http://dfernandez.me/articles/cross_domain_http_requests/</link>
+      <pubDate>Fri, 25 Oct 2013 09:00:00 -0300</pubDate>
+      <guid isPermaLink="true">http://dfernandez.me/articles/cross_domain_http_requests/</guid>
+      <author></author>
+      <description>&lt;p&gt;I always tried to avoid doing &lt;strong&gt;cross domain HTTP request&lt;/strong&gt; as I had the feeling it was not secure enough. However, not too long ago, I had to implement it for a project I am working on and it lead me to something called &lt;a target=&quot;_blank&quot; href=&quot;http://www.w3.org/TR/cors/&quot;&gt;Cross-Origin Resource Sharing&lt;/a&gt;, also know as &lt;strong&gt;CORS&lt;/strong&gt;. I found that making cross domain HTTP requests, &lt;strong&gt;is not as hard or insecure as I thought it was&lt;/strong&gt; (as long as you do it correctly).
+
+&lt;/p&gt;
+&lt;p&gt;So lets move directly to the code to check it out. Here is a &lt;strong&gt;GET request made from origin.com&lt;/strong&gt;:
+
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; xhr = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; XMLHttpRequest();
+xhr.open(&lt;span class=&quot;string&quot;&gt;'GET'&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'http://destination.com/dogs?size=big'&lt;/span&gt;,&lt;span class=&quot;keyword&quot;&gt;true&lt;/span&gt;);    
+xhr.onreadystatechange = &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(e) {
+    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.readyState == &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt; &amp;&amp; &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.status == &lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;) {
+        console.log(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.responseText);
+    }
+}
+xhr.send(&lt;span class=&quot;keyword&quot;&gt;null&lt;/span&gt;);&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;and the browser will create a &lt;strong&gt;request with the following headers&lt;/strong&gt;:
+
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;GET http:&lt;span class=&quot;comment&quot;&gt;//destination.com/dogs HTTP/1.1    &lt;/span&gt;
+Origin: http:&lt;span class=&quot;comment&quot;&gt;//origin.com&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In order for the server to accept the call, it has to include these &lt;strong&gt;headers in its response&lt;/strong&gt;:
+
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Access-Control-Allow-Origin: http:&lt;span class=&quot;comment&quot;&gt;//origin.com&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The Access-Control-Allow-Origin response header will &lt;strong&gt;tell the browser that the origin is allowed&lt;/strong&gt; and it will process the response. 
+
+&lt;/p&gt;
+&lt;p&gt;Sometimes, you will need to do manage also &lt;strong&gt;HTTP authentication&lt;/strong&gt; on cross domain HTTP calls. For example, lets say that you need make a call from &lt;strong&gt;origin.com to destination.com with destination.com cookies&lt;/strong&gt; so the server authenticates the user. The browser will not send those cookies by default, but you need to force them setting the &lt;strong&gt;withCredentials property to true&lt;/strong&gt;. 
+
+&lt;/p&gt;
+&lt;p&gt;Here is a POST example &lt;strong&gt;from origin.com that sends destination.com cookies&lt;/strong&gt;:
+
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; xhr = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; XMLHttpRequest();
+
+xhr.open(&lt;span class=&quot;string&quot;&gt;'POST'&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'http://destination.com/dogs'&lt;/span&gt;,&lt;span class=&quot;keyword&quot;&gt;true&lt;/span&gt;);
+xhr.setRequestHeader(&lt;span class=&quot;string&quot;&gt;&quot;Content-type&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;application/x-www-form-urlencoded&quot;&lt;/span&gt;);
+xhr.withCredentials = &lt;span class=&quot;keyword&quot;&gt;true&lt;/span&gt; ;
+xhr.onreadystatechange = &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(e) {
+    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.readyState == &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt; &amp;&amp; &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.status == &lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;) {
+        console.log(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.responseText);
+    }
+}
+xhr.send(&lt;span class=&quot;string&quot;&gt;'name=rambo'&lt;/span&gt;);&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In this case, the server will not only need to include &quot;Access-Control-Allow-Origin&quot; header to accept the call but also &lt;strong&gt;&quot;Access-Control-Allow-Credentials&quot;&lt;/strong&gt;: 
+
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    Access-Control-Allow-Origin: http:&lt;span class=&quot;comment&quot;&gt;//origin.com&lt;/span&gt;
+    Access-Control-Allow-Credentials: &lt;span class=&quot;keyword&quot;&gt;true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Findally, some &lt;strong&gt;important notes&lt;/strong&gt; to take into account:
+
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Server can set the header &lt;strong&gt;&quot;Access-Control-Allow-Origin&quot; to &quot;*&quot;&lt;/strong&gt; in order to allow any origin. But if set to &quot;*&quot;, then &lt;strong&gt;&quot;Access-Control-Allow-Credentials&quot; cannot be set to true&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The browser &lt;strong&gt;only includes the &quot;Origin&quot; header when the request is cross-origin&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;IE has limited support&lt;/strong&gt; on CORS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Hope you find it useful!&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Listboard.it updates</title>
+      <link>http://dfernandez.me/articles/listboard_it_updates/</link>
+      <pubDate>Sat, 05 Oct 2013 09:00:00 -0300</pubDate>
+      <guid isPermaLink="true">http://dfernandez.me/articles/listboard_it_updates/</guid>
+      <author></author>
+      <description>&lt;p&gt;&lt;img src=&quot;/images/articles/capture-2013-11-06.png&quot; alt=&quot;Listboard.it screenshot&quot;/&gt; 
+
+&lt;/p&gt;
+&lt;p&gt;At &lt;a href=&quot;http://listboard.it/&quot; target=&quot;_blank&quot;&gt;Listboard.it&lt;/a&gt; we keep iterating over different ideas to improve the user experience and reduce the steps that it takes to use the site. So here are some of the latest things we are working on:
+
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Provide search of content across all open tabs .&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Allow the user to easily froze tabs for later user.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Release the &quot;Archive&quot; panel to bookmarks tabs for future use.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Create new API that uses OAuth2&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you are intereting in knowing more about it, feel free to register at &lt;a href=&quot;http://listboard.it/&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt; .&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Mongoose array field update problem</title>
+      <link>http://dfernandez.me/articles/mongoose_array_field_update_problem/</link>
+      <pubDate>Sun, 15 Sep 2013 09:00:00 -0300</pubDate>
+      <guid isPermaLink="true">http://dfernandez.me/articles/mongoose_array_field_update_problem/</guid>
+      <author></author>
+      <description>&lt;p&gt;Recently, I struggled with a problem when saving a mongoose instance which had an array field.
+Whenever I saved the instance, &lt;strong&gt;the values of its array field were not propagated to the database&lt;/strong&gt;.
+I checked the instance right before calling .save() and the array had its values loaded correctly. However after saving the instance, I could not find them on the database. 
+
+&lt;/p&gt;
+&lt;p&gt;Doing some digging on the internet, I found that &lt;strong&gt;mongoose has a limitation&lt;/strong&gt;.
+That instance is known as a &lt;strong&gt;Mixed Type&lt;/strong&gt; because it includes embedded documents. So in order to propagate the changes to the database, it is needed to &lt;strong&gt;mark the array field as modified&lt;/strong&gt;.
+
+&lt;/p&gt;
+&lt;p&gt;For for example if you an instance called &lt;strong&gt;house&lt;/strong&gt; has that has this schema:
+
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; HouseSchema = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Schema({
+    rooms: [
+        {type: Schema.ObjectId, ref: &lt;span class=&quot;string&quot;&gt;'Room'&lt;/span&gt;}
+    ]
+});&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;when you update &lt;strong&gt;house.rooms&lt;/strong&gt;, you need to call:
+
+
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;house.markModified(&lt;span class=&quot;string&quot;&gt;&quot;rooms&quot;&lt;/span&gt;);
+house.save(&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(err) {
+});&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can find the reference &lt;a target=&quot;_blank&quot; href=&quot;http://mongoosejs.com/docs/schematypes.html#mixed&quot;&gt;here&lt;/a&gt;
+
+&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&quot;Mongoose loses the ability to auto detect/save those changes. To &quot;tell&quot; Mongoose that the value of a Mixed type has changed, call the .markModified(path) method of the document passing the path to the Mixed type you just changed.&quot;&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>Too many tabs opened?</title>
       <link>http://dfernandez.me/articles/too_many_tabs_opened/</link>
